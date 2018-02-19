@@ -8660,10 +8660,12 @@ webpackJsonp([1],[
 	
 	// import classnames from 'classnames';
 	var SYSTEM_ACTIONS = {
-	  RESTART_ALL: 'Start/Restart All',
+	  RESTART_ALL: 'Start/Restart All'
+/*
 	  STOP_ALL: 'Stop All',
 	  DELETE_ALL: 'Delete All',
 	  KILL_PM2: 'Kill PM2'
+*/
 	};
 	
 	// Chart.defaults.global.responsive = true
@@ -8873,7 +8875,7 @@ webpackJsonp([1],[
 	          _react2.default.createElement(
 	            _materialUi.IconButton,
 	            {
-	              disabled: !rowSelected,
+	              disabled: true,
 	              onTouchTap: function onTouchTap() {
 	                return _this6.handleSystemAction(SYSTEM_ACTIONS.STOP_ALL, processId);
 	              },
@@ -8895,7 +8897,7 @@ webpackJsonp([1],[
 	          _react2.default.createElement(
 	            _materialUi.IconButton,
 	            {
-	              disabled: !rowSelected,
+	              disabled: true,
 	              onTouchTap: function onTouchTap() {
 	                return _this6.handleSystemAction(SYSTEM_ACTIONS.DELETE_ALL, processId);
 	              },
@@ -8906,7 +8908,7 @@ webpackJsonp([1],[
 	          _react2.default.createElement(
 	            _materialUi.IconButton,
 	            {
-	              disabled: !rowSelected,
+	              disabled: true,
 	              onTouchTap: function onTouchTap() {
 	                return _this6.getConfiguration(processId);
 	              },
