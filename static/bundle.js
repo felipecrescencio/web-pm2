@@ -8932,6 +8932,7 @@ webpackJsonp([1],[
 	            icon: _react2.default.createElement(_expandMore2.default, null),
 	            label: 'System Actions',
 	            labelPosition: 'before',
+	            disabled: true,
 	            onTouchTap: this.handleTouchTap.bind(this)
 	          }),
 	          _react2.default.createElement(

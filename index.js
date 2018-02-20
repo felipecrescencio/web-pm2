@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 var fileSystem = require('fs');
 var bodyParser = require('body-parser');
+var config = require('config');
 
 const utils = require('./common/utils');
 const processController = require('./common/processController');
@@ -28,6 +29,7 @@ app.get('/api/serverStat',(req,res)=>{
 });
 
 //Operations
+/*
 app.get('/api/operations/stop/:id',(req,res)=>{
   if(!req.params.id){
     res.status(400).send({
@@ -44,6 +46,7 @@ app.get('/api/operations/stop/:id',(req,res)=>{
     res.status(400).send(err);
   });
 });
+*/
 
 app.get('/api/operations/restart/:id',(req,res)=>{
   if(!req.params.id){
@@ -62,6 +65,7 @@ app.get('/api/operations/restart/:id',(req,res)=>{
   });
 });
 
+/*
 app.get('/api/operations/delete/:id',(req,res)=>{
   if(!req.params.id){
     res.status(400).send({
@@ -89,6 +93,7 @@ app.get('/api/operations/kill', (req,res)=>{
     res.status(400).send(err);
   });
 });
+*/
 
 app.get('/api/operations/logs/:id', (req,res) => {
   if(!req.params.id){
@@ -191,6 +196,18 @@ app.post('/api/operations/configuration/:id', (req,res)=>{
     res.status(400).send(err);
   });
 });
+
+var basicAuth = require('basic-auth-connect');
+
+var authSettings = null;
+
+if(config.has('authSettings.enabled')){
+  authSettings = config.get('authSettings');
+
+  if(authSettings.enabled){
+  app.use('/', basicAuth(authSettings.user, authSettings.password));
+  }
+}
 
 app.use('/', express.static(path.join(__dirname,'static')));
 
